@@ -5,7 +5,7 @@ import { Footer } from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Tutorin — Belajar Lebih Terarah",
-  description: "Platform belajar Tutorin: Privat, Kelas, Ebook, Tryout, dan Blog.",
+  description: "Tutorin membantu proses belajar lebih terarah melalui Bimbel Privat, Kelas, Ebook, Tryout, dan Blog.",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

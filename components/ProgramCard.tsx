@@ -8,7 +8,7 @@ export function ProgramCard({ program }: { program: Program }) {
       <h3>{program.name}</h3>
       <p>{program.shortDescription}</p>
       <div className="tags"><span>{program.level}</span>{program.subject && <span>{program.subject}</span>}</div>
-      <Link className="text-link" href={`/program/${program.category}/${program.slug}`}>Lihat program →</Link>
+      <Link className="text-link" href={`/program/${program.category}/${program.slug}`}>Lihat detail bimbel →</Link>
     </article>
   );
 }
