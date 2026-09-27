@@ -135,3 +135,15 @@ Dashboard reads directly from Supabase and shows:
 ## Important GitHub limitation
 
 The GitHub integration needs a token with permission to write to the selected repository. If the GitHub account/repository is suspended or access is denied, CMS metadata CRUD can still work in Supabase, but automatic TO-folder creation cannot.
+
+## Vercel build compatibility fix
+
+Pinned published versions for reliable Vercel installs:
+- Next.js 15.5.25
+- React 19.3.0
+- React DOM 19.3.0
+- TypeScript 5.9.3
+- Node.js 22.x
+
+The previous `typescript: 5.8.0` was invalid because that exact stable version was not published to npm; the 5.8 line includes 5.8.3.
+
