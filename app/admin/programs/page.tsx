@@ -1,2 +1,2 @@
-import { programs } from "@/data/programs";
-export default function AdminPrograms(){return <><div className="section-title"><div className="eyebrow">CMS / Program</div><h1>Program Tutorin</h1><p>Contoh tampilan data yang nantinya diambil dari Supabase.</p></div><div className="table-wrap"><table className="table"><thead><tr><th>Nama</th><th>Kategori</th><th>Level</th><th>Subject</th><th>Status</th></tr></thead><tbody>{programs.map(p=><tr key={p.slug}><td><strong>{p.name}</strong><br/><small>{p.slug}</small></td><td><span className="badge">{p.category}</span></td><td>{p.level}</td><td>{p.subject||"—"}</td><td><span className="badge">Published</span></td></tr>)}</tbody></table></div></>}
+import ProgramManager from '@/components/admin/ProgramManager';
+export default function Page(){return <ProgramManager/>}
