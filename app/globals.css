@@ -104,7 +104,7 @@ code{overflow-wrap:anywhere}
 .method-card h3{font-size:18px;margin:18px 0 8px}
 .method-card p{color:var(--muted);font-size:14px;line-height:1.6;margin:0}
 .tutor-section{padding-top:10px}
-.tutor-banner{background:var(--green);color:white;border-radius:28px;padding:38px;display:flex;justify-content:space-between;align-items:end;gap:30px}
+.tutor-banner{background:var(--green);color:white;border-radius:28px;padding:38px;display:flex;justify-content:space-between;align-items:flex-end;gap:30px}
 .tutor-banner h2{font-size:36px;letter-spacing:-1.5px;max-width:760px;margin:8px 0 12px}
 .tutor-banner p{max-width:760px;line-height:1.7;opacity:.84;margin:0}
 .tutor-banner .button{flex:0 0 auto}
@@ -113,7 +113,7 @@ code{overflow-wrap:anywhere}
 /* ---------- Bimbel search & filter ---------- */
 .bimbel-catalog-section{padding-top:20px}
 .bimbel-catalog{display:grid;gap:22px}
-.catalog-toolbar{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:18px;align-items:end;background:white;border:1px solid var(--line);border-radius:20px;padding:18px}
+.catalog-toolbar{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:18px;align-items:flex-end;background:white;border:1px solid var(--line);border-radius:20px;padding:18px}
 .catalog-search label,.catalog-filter>span{display:block;font-size:12px;font-weight:900;color:var(--green);letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px}
 .search-input-wrap{display:flex;align-items:center;gap:9px;border:1px solid var(--line);border-radius:12px;padding:0 12px;background:#fbfefb;min-height:48px}
 .search-input-wrap>span{font-size:23px;color:var(--green);line-height:1}
