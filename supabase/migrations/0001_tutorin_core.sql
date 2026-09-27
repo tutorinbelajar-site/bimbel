@@ -8,7 +8,7 @@ create type public.content_status as enum ('draft', 'published', 'archived');
 create type public.user_role as enum ('student', 'parent', 'tutor', 'content_admin', 'question_admin', 'program_admin', 'finance_admin', 'super_admin');
 create type public.test_type as enum ('tryout', 'practice', 'quiz');
 
-table public.profiles (
+create table public.profiles (
   id uuid primary key references auth.users(id) on delete cascade,
   full_name text,
   phone text,
@@ -17,7 +17,7 @@ table public.profiles (
   updated_at timestamptz not null default now()
 );
 
-table public.programs (
+create table public.programs (
   id uuid primary key default gen_random_uuid(),
   slug text unique not null,
   category public.program_category not null,
@@ -33,7 +33,7 @@ table public.programs (
   updated_at timestamptz not null default now()
 );
 
-table public.program_packages (
+create table public.program_packages (
   id uuid primary key default gen_random_uuid(),
   program_id uuid not null references public.programs(id) on delete cascade,
   name text not null,
@@ -44,14 +44,14 @@ table public.program_packages (
   status public.content_status not null default 'published'
 );
 
-table public.program_features (
+create table public.program_features (
   id uuid primary key default gen_random_uuid(),
   program_id uuid not null references public.programs(id) on delete cascade,
   feature text not null,
   sort_order integer not null default 0
 );
 
-table public.articles (
+create table public.articles (
   id uuid primary key default gen_random_uuid(),
   slug text unique not null,
   title text not null,
@@ -68,7 +68,7 @@ table public.articles (
   updated_at timestamptz not null default now()
 );
 
-table public.ebooks (
+create table public.ebooks (
   id uuid primary key default gen_random_uuid(),
   slug text unique not null,
   title text not null,
@@ -82,7 +82,7 @@ table public.ebooks (
   updated_at timestamptz not null default now()
 );
 
-table public.question_banks (
+create table public.question_banks (
   id uuid primary key default gen_random_uuid(),
   name text not null,
   program_category public.program_category,
@@ -93,7 +93,7 @@ table public.question_banks (
   created_at timestamptz not null default now()
 );
 
-table public.questions (
+create table public.questions (
   id uuid primary key default gen_random_uuid(),
   bank_id uuid references public.question_banks(id) on delete set null,
   code text unique,
@@ -111,7 +111,7 @@ table public.questions (
   updated_at timestamptz not null default now()
 );
 
-table public.question_options (
+create table public.question_options (
   id uuid primary key default gen_random_uuid(),
   question_id uuid not null references public.questions(id) on delete cascade,
   option_key text not null,
@@ -120,7 +120,7 @@ table public.question_options (
   unique(question_id, option_key)
 );
 
-table public.tests (
+create table public.tests (
   id uuid primary key default gen_random_uuid(),
   slug text unique not null,
   title text not null,
@@ -136,7 +136,7 @@ table public.tests (
   updated_at timestamptz not null default now()
 );
 
-table public.test_questions (
+create table public.test_questions (
   id uuid primary key default gen_random_uuid(),
   test_id uuid not null references public.tests(id) on delete cascade,
   question_id uuid not null references public.questions(id) on delete restrict,
@@ -146,7 +146,7 @@ table public.test_questions (
   unique(test_id, sort_order)
 );
 
-table public.attempts (
+create table public.attempts (
   id uuid primary key default gen_random_uuid(),
   test_id uuid not null references public.tests(id) on delete restrict,
   user_id uuid not null references public.profiles(id) on delete cascade,
@@ -158,7 +158,7 @@ table public.attempts (
   status text not null default 'in_progress'
 );
 
-table public.attempt_answers (
+create table public.attempt_answers (
   id uuid primary key default gen_random_uuid(),
   attempt_id uuid not null references public.attempts(id) on delete cascade,
   question_id uuid not null references public.questions(id) on delete restrict,
@@ -169,7 +169,7 @@ table public.attempt_answers (
   unique(attempt_id, question_id)
 );
 
-table public.orders (
+create table public.orders (
   id uuid primary key default gen_random_uuid(),
   user_id uuid not null references public.profiles(id) on delete restrict,
   product_type text not null,
